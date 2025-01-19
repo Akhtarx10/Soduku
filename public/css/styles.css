@@ -5,13 +5,17 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: url('../img/home-bg.jpg') no-repeat center center fixed; /* Background image for the home screen */
+    background: url('../img/home-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
+    flex-direction: column;
 }
 
 #game-container {
     text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 20px;
 }
 
 .hidden {
@@ -19,31 +23,41 @@ body {
 }
 
 button {
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 15px 30px;
+    margin: 15px;
     border: none;
-    border-radius: 5px;
-    background-color: #1abc9c;
+    border-radius: 8px;
+    background-color: #3498db;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 200px;
 }
 
 button:hover {
-    background-color: #16a085;
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
 }
 
 #sudoku-board {
     display: grid;
-    grid-template-columns: repeat(9, 40px);
-    grid-template-rows: repeat(9, 40px);
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
     gap: 2px;
     margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
 }
 
 input {
-    width: 40px;
+    width: 100%;
     height: 40px;
     text-align: center;
     font-size: 18px;
@@ -52,11 +66,11 @@ input {
 }
 
 .correct {
-    background-color: #2ecc71; /* Green */
+    background-color: #2ecc71;
 }
 
 .wrong {
-    background-color: #e74c3c; /* Red */
+    background-color: #e74c3c;
 }
 
 #info-bar {
@@ -65,23 +79,82 @@ input {
     margin: 20px;
 }
 
-/* Background for game state */
 body.game-screen {
-    background: url('../img/game-bg.jpg') no-repeat center center fixed; /* Background image for the game screen */
+    background: url('../img/game-bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 body.game-over-screen {
-    background: url('../img/game-over-bg.jpg') no-repeat center center fixed; /* Background image for the game over screen */
+    background: url('../img/game-over-bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 body.congratulations-screen {
-    background: url('../img/congratulations-bg.jpg') no-repeat center center fixed; /* Background image for the congratulations screen */
+    background: url('../img/congratulations-bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+
 #retry-button {
-    padding: 20px 40px;
-    font-size: 24px;
-    margin-top: 10vh; /* Adjusted margin using viewport height */
+    padding: 18px 36px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e67e22;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    width: 80%;
+    max-width: 250px;
+}
+
+#retry-button:hover {
+    background-color: #d35400;
+    transform: scale(1.1);
+}
+
+#retry-button:focus {
+    outline: none;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    #game-container {
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    #sudoku-board {
+        grid-template-columns: repeat(9, 1fr);
+        width: 90%;
+        max-width: 350px;
+    }
+
+    input {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        font-size: 14px;
+    }
+
+    #sudoku-board {
+        grid-template-columns: repeat(9, 1fr);
+        width: 90%;
+        max-width: 300px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    #retry-button {
+        font-size: 16px;
+        padding: 15px 30px;
+    }
 }
