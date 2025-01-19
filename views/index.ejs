@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="home-screen">
+            <h1>Welcome to Sudoku!</h1>
+            <button id="play-button">Play</button>
+        </div>
+        <div id="game-screen" class="hidden">
+            <div id="sudoku-board"></div>
+            <div id="info-bar">
+                <div>Time: <span id="timer">06:00</span></div>
+                <div>Mistakes: <span id="mistakes">0</span>/5</div>
+                <div>Hints: <span id="hints">3</span>/3</div>
+                <button id="hint-button">Hint</button>
+                <button id="submit-button">Submit</button>
+            </div>
+            <div id="message"></div>
+            <button id="restart-button">Restart</button>
+        </div>
+        <div id="game-over-screen" class="hidden">
+            
+            <button id="retry-button">Retry</button>
+        </div>
+        <div id="congratulations-screen" class="hidden">
+            <h2>Congratulations!</h2>
+            <p>You solved the Sudoku puzzle!</p>
+            <button id="play-again-button">Play Again</button>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
